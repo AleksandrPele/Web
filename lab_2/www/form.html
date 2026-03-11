@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Заявка на кредит</title>
+</head>
+<body>
+<h2>Заявка на кредит</h2>
+
+<form id="creditForm">
+    <div>
+        <label>ФИО:</label>
+        <label>
+            <input type="text" name="fullname" placeholder="Иванов Иван Иванович" required>
+        </label>
+    </div>
+
+    <div>
+        <label>Сумма кредита (₽):</label>
+        <label>
+            <input type="number" name="amount" min="1000" max="10000000" required>
+        </label>
+    </div>
+
+    <div>
+        <label>Выберите банк:</label>
+        <label>
+            <select name="bank" required>
+                <option value="">-- Выберите банк --</option>
+                <option value="sberbank">Сбербанк</option>
+                <option value="vtb">ВТБ</option>
+                <option value="alfabank">Альфа-Банк</option>
+            </select>
+        </label>
+    </div>
+
+    <div>
+        <label>Срок кредита:</label><br>
+        <input type="radio" name="term" value="1" checked> 1 год
+        <input type="radio" name="term" value="3"> 3 года
+        <input type="radio" name="term" value="5"> 5 лет
+    </div>
+
+    <div>
+        <input type="checkbox" name="insurance" value="yes">
+        <label>Добавить страховку</label>
+    </div>
+
+    <button type="submit">Отправить заявку</button>
+</form>
+
+<div id="result">
+    <h3>Результат:</h3>
+    <p>Данные появятся после отправки формы</p>
+</div>
+
+<script>
+    document.getElementById("creditForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        const formData = new FormData(this);
+        let output = "<h3>Данные заявки:</h3>";
+
+        for (const [name, value] of formData.entries()) {
+            let fieldName = "";
+
+            switch(name) {
+                case "fullname": fieldName = "ФИО"; break;
+                case "amount": fieldName = "Сумма кредита"; break;
+                case "bank": fieldName = "Банк"; break;
+                case "term": fieldName = "Срок кредита"; break;
+                case "insurance": fieldName = "Страховка"; break;
+                default: fieldName = name;
+            }
+
+            output += `<p><b>${fieldName}:</b> ${value}</p>`;
+        }
+
+        if (!this.insurance.checked) {
+            output += `<p><b>Страховка:</b> Нет</p>`;
+        }
+
+        document.getElementById("result").innerHTML = output;
+    });
+</script>
+</body>
+</html>
