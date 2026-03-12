@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Заявка на кредит</title>
+    <meta charset="utf-8">
+</head>
+<body>
+<h1>Новая заявка на кредит</h1>
+
+<form action="process.php" method="POST">
+    <p>
+        <label>ФИО: <input type="text" name="name" required></label>
+    </p>
+    <p>
+        <label>Сумма: <input type="number" name="amount" required></label>
+    </p>
+    <p>
+        <label>Банк:
+            <select name="bank" required>
+                <option value="">Выберите</option>
+                <option value="Сбербанк">Сбербанк</option>
+                <option value="ВТБ">ВТБ</option>
+                <option value="Альфа-Банк">Альфа-Банк</option>
+            </select>
+        </label>
+    </p>
+    <p>
+        <label>
+            <input type="checkbox" name="insurance" value="1">
+            Оформить страховку
+        </label>
+    </p>
+    <p>
+        Срок кредита:<br>
+        <label><input type="radio" name="loan_term" value="1 год" required> 1 год</label><br>
+        <label><input type="radio" name="loan_term" value="3 года"> 3 года</label><br>
+        <label><input type="radio" name="loan_term" value="5 лет"> 5 лет</label>
+    </p>
+    <p>
+        <button type="submit">Отправить</button>
+    </p>
+</form>
+
+<p><a href="index.php">К списку заявок</a></p>
+</body>
+</html>
