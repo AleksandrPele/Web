@@ -1,0 +1,14 @@
+{
+    "name": "student/lab4",
+    "description": "Lab work 4 with currency API",
+    "type": "project",
+    "require": {
+        "guzzlehttp/guzzle": "^7.10"
+    },
+    "authors": [
+        {
+            "name": "AleksandrPele",
+            "email": "aleksandr.fph@gmail.com"
+        }
+    ]
+}
