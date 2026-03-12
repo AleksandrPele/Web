@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Заявка на кредит</title>
+</head>
+<body>
+<h2>Заявка на кредит</h2>
+
+<form id="creditForm" action="process.php" method="POST">
+    <div>
+        <label for="fullname">ФИО:</label><br>
+        <input type="text" id="fullname" name="fullname" placeholder="Иванов Иван Иванович" required>
+    </div>
+
+    <br>
+
+    <div>
+        <label for="amount">Сумма кредита (₽):</label><br>
+        <input type="number" id="amount" name="amount" min="1000" max="10000000" step="1000" required>
+    </div>
+
+    <br>
+
+    <div>
+        <label for="bank">Выберите банк:</label><br>
+        <select id="bank" name="bank" required>
+            <option value="">-- Выберите банк --</option>
+            <option value="Сбербанк">Сбербанк</option>
+            <option value="ВТБ">ВТБ</option>
+            <option value="Альфа-Банк">Альфа-Банк</option>
+            <option value="Тинькофф">Тинькофф</option>
+        </select>
+    </div>
+
+    <br>
+
+    <div>
+        <label>Срок кредита:</label><br>
+        <input type="radio" name="term" value="1 год" checked> 1 год
+        <input type="radio" name="term" value="3 года"> 3 года
+        <input type="radio" name="term" value="5 лет"> 5 лет
+    </div>
+
+    <br>
+
+    <div>
+        <input type="checkbox" id="insurance" name="insurance" value="Да">
+        <label for="insurance">Добавить страховку</label>
+    </div>
+
+    <br>
+
+    <button type="submit">Отправить заявку</button>
+</form>
+
+<hr>
+
+<div>
+    <a href="index.php">На главную</a> |
+    <a href="view.php">Все заявки</a>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
